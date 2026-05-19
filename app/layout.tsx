@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Coda, Nunito, Roboto } from "next/font/google";
 import "./globals.css";
+import { StitchesRegistry } from "./stitches-registry";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const coda = Coda({
+  variable: "--font-coda",
+  subsets: ["latin"],
+  weight: ["400", "800"],
+});
+
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -25,9 +33,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${coda.variable} ${nunito.variable} ${roboto.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
+      <body className="min-h-full flex flex-col">
+        <StitchesRegistry>{children}</StitchesRegistry>
+      </body>
+    </html> 
   );
 }
