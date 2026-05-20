@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Coda, Nunito, Roboto } from "next/font/google";
 import "./globals.css";
 import { StitchesRegistry } from "./stitches-registry";
+import { AppShell } from "./components/app-shell";
 
 const coda = Coda({
   variable: "--font-coda",
@@ -36,7 +37,9 @@ export default function RootLayout({
       className={`${coda.variable} ${nunito.variable} ${roboto.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <StitchesRegistry>{children}</StitchesRegistry>
+        <StitchesRegistry>
+          <AppShell>{children}</AppShell>
+        </StitchesRegistry>
       </body>
     </html> 
   );
