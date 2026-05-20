@@ -13,7 +13,14 @@ import { createStitches } from "@stitches/react";
  } = createStitches({
   theme: {
     colors: {
-        rocketseat: "#8257e6",
+      white:'#fff',
+
+      gray900: '#121214',
+      gray800: '#202024',
+      gray300: '#C4C4CC',
+
+      green500: '#00875f',
+      green300: '#00b37e',
     },
   },
 })
